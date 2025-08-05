@@ -1,7 +1,7 @@
 ```markdown
 # 📊 Banking Analytics Dashboard
 
-![Banking Dashboard Banner]([https://via.placeholder.com/1200x300?text=Banking+Analytics+Dashboard](https://github.com/AnalystVivek/Banking_Analysis/blob/main/Screenshot%202025-08-05%20002028.png)  
+![Banking Dashboard Banner]([https://github.com/AnalystVivek/Banking_Analysis/blob/main/Screenshot%202025-08-05%20002028.png])  
 
 ## 🚀 Project Overview
 
