@@ -1,185 +1,133 @@
-```markdown
-# 📊 Banking Analytics Dashboard
+# 🏦 Banking Analysis Project
 
-![Banking Dashboard Banner]([https://github.com/AnalystVivek/Banking_Analysis/blob/main/Screenshot%202025-08-05%20002028.png])  
+### Created by Vivek Pattnaik
+<p align="left"> <a href="https://www.linkedin.com/in/vivekpattnaik" target="_blank"> <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"> </a>  </a> <a href="mailto:vivek.pattnaik@gmail.com"> <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"> </a> </p>
 
-## 🚀 Project Overview
+## 📊 Interactive Dashboard
 
-Welcome to the **Banking Analytics Dashboard** project! This is a comprehensive data analytics initiative focused on analyzing banking customer data to uncover key insights into customer demographics, financial performance, risk profiles, and compliance metrics. As a Data Analyst, I leveraged this project to demonstrate skills in data extraction, transformation, visualization, and insightful reporting.
+This project features a comprehensive Power BI dashboard that provides a deep dive into the bank's customer data, financial performance, and risk profiles.
+<a href="https://project.novypro.com/gdufdN" target="_blank"> <img src="https://img.shields.io/badge/View_Live_Dashboard-FF6347?style=for-the-badge&logo=powerbi&logoColor=white" alt="Live Dashboard"> </a>
 
-The dashboard provides an interactive view of banking operations, helping stakeholders understand client behaviors, financial health, and risk exposures. Built using real-world banking data, it highlights trends in deposits, loans, customer loyalty, and risk categories across various demographics.
+<img width="1774" height="981" alt="Screenshot 2025-08-05 002028" src="https://github.com/user-attachments/assets/f8de90b8-5d99-462c-aff7-8f065694a916" />
 
-Key highlights:
-- **Domain**: Data Analytics in Banking
-- **Tools Used**: MySQL for data storage and querying, Jupyter Notebook for data exploration and ETL, Power BI for interactive visualizations and dashboard creation.
-- **Dataset**: A CSV file (`Banking.csv`) containing customer details like age, income, banking relationships, deposits, loans, and more (sample attached in repo).
-- **Objective**: To create actionable insights for banking executives to optimize customer engagement, manage risks, and drive financial growth.
 
-This project showcases end-to-end data analytics: from raw data ingestion to insightful dashboards. Explore the live Power BI report [here](https://project.novypro.com/gdufdN) for interactive exploration!
 
----
+## 📝 Project Overview
 
-## 🛠 Tools and Technologies
+This project presents an in-depth analysis of a diverse banking dataset encompassing 3,000 clients. The primary objective is to transform raw transactional and demographic data into actionable business intelligence. By leveraging **MySQL** for data storage, **Python (with Pandas in a Jupyter Notebook)** for initial data handling, and **Power BI** for advanced analysis and visualization, this project uncovers critical insights into customer behavior, financial health, and risk assessment.
 
-- **Database**: MySQL - For storing and querying the banking dataset.
-- **Data Processing**: Jupyter Notebook - Used for initial data loading, cleaning, and analysis (see `Banking_Analysis.ipynb` in the repo).
-- **Visualization**: Power BI - For building the interactive dashboard with DAX measures and custom visuals.
-- **Other**: Python (Pandas, MySQL Connector) for ETL in Jupyter.
+The key objectives were:
 
----
+-   **To perform a detailed analysis of the banking data.**
 
-## 📂 Data Source and Preparation
+-   **To segment customers based on various factors like age, income, and relationship type.**
 
-The dataset is sourced from `Banking.csv`, which includes columns like:
-- `client_id`, `name`, `gender`, `age`, `banking_relationship`, `estimated_income`, `loyalty_classification`, `bank_loans`, `bank_deposits`, etc.
+-   **To identify and categorize client risk levels.**
 
-### Data Loading in Jupyter Notebook
-Here's a snippet from `Banking_Analysis.ipynb` showing how data was loaded from MySQL:
+-   **To visualize complex data trends for easy interpretation.**
 
-```
+-   **To create a professional and insightful Power BI dashboard to showcase the findings.**
+
+
+<br>
+
+The analysis is structured around three key pillars:
+1.  **Customer Demographics & Profiling:** Understanding who the customers are.
+2.  **Financial Product Performance:** Analyzing the performance of financial products like loans and deposits.
+3.  **Risk & Compliance Management:** Identifying and managing client-associated risks.
+
+## 🛠️ Tools & Technologies
+
+| Tool | Purpose |
+| :--- | :--- |
+| **MySQL** | Backend database for storing and managing the customer and financial data. |
+| **Python (Jupyter Notebook)** | Data Processing & Exploration: Pandas, Matplotlib, Seaborn |
+| **Power BI** | The core tool for data modeling, creating complex DAX measures, and building the interactive, multi-page dashboard for visualization and insight generation. |
+
+## ⚙️ Project Execution
+
+### 1. Data Extraction (ETL)
+
+The process began with connecting to a local MySQL server to fetch the raw banking data. The following Python script was executed in a Jupyter Notebook to load the data into a Pandas DataFrame for preliminary inspection. [Banking_Analysis.ipynb](https://github.com/AnalystVivek/Banking_Analysis/blob/main/Banking_Analysis.ipynb)
+
+```python
 import mysql.connector
 import pandas as pd
 
-# Connect to MySQL server
+# Establish connection to the MySQL server
 cnx = mysql.connector.connect(
     host="127.0.0.1",
     port=3306,
-    user="root",
-    password="284585"
+    user="user_id",
+    password="password" # Replace with your password
 )
 
-# Query to fetch data
+# SQL query to select all data from the customers table
 query = "SELECT * FROM banking_analysis.customers"
 
-# Load into Pandas DataFrame
+# Load data into a Pandas DataFrame
 df = pd.read_sql(query, cnx)
+
+# Close the database connection
 cnx.close()
 
-# Basic stats
-df.describe()
+# Display the first few rows of the dataset
+print(df.head())
 ```
 
-This ETL process ensured data was cleaned, transformed, and ready for analysis in Power BI.
+### 2. Data Modeling & DAX Measures
 
----
+Within Power BI, the data was modeled to establish relationships between different tables. Several powerful DAX measures were created to enable dynamic and complex calculations. Here are some of the key measures used :
 
-## 🔍 Key Insights
+<img width="1434" height="151" alt="image" src="https://github.com/user-attachments/assets/9c1322fd-2ed3-47ac-8d4c-54d8aac33c71" />
 
-Through rigorous analysis, the dashboard reveals several critical insights into the banking dataset of 3000 customers:
+<br>
 
-1. **Customer Demographics**:
-   - **Total Clients**: 3000, with a balanced gender distribution (50.4% Female, 49.6% Male).
-   - **Age Groups**: Adults (30-59) dominate at 43.63% (1309 clients), followed by Seniors (60+) at 37.57% (1127), and Young (18-29) at 18.8% (564).
-   - **Nationality Breakdown**: European (40.73%), Asian (27.87%), American (15.33%), Australian (10.73%), African (5.33%).
-   - **Insight**: Growth in customer base has been steady since 1995, with a spike in recent years. Private Banking holds the most clients (1352), indicating strong high-net-worth engagement.
+## 💡 Key Insights & Findings
 
-   ![Customer Demographics Chart](images/customer_demographics.png)  
-   *(Extracted from Banking_analysis.pdf - Age Group and Nationality Distribution.)*
+The dashboard is organized into three main analytical views, each providing unique insights.
 
-2. **Financial Performance**:
-   - **Total Deposits**: 2.0bn, with Private Banking contributing the highest.
-   - **Total Loans**: 1.8bn, showing a healthy loan-to-deposit ratio.
-   - **Savings and Balances**: Total Savings Balance at 69.87bn, Checking at 96.33bn, Foreign Currency at 8.97bn, Superannuation at 7.66bn.
-   - **Credit Exposure**: High in credit cards and business lending, with top occupations like Software Engineers and Accountants driving high net worth.
-   - **Insight**: Debt-to-Income ratios are stable, but young clients show higher variability. Top 10 customers by net worth contribute significantly to deposits (e.g., John Frazier with 49M net worth).
+### I. Customer Demographics & Profile Analysis
 
-   ![Financial Portfolio Chart](images/financial_portfolio.png)  
-   *(Extracted from Banking_analysis.pdf - Deposits vs. Loans by Relationship Type.)*
+This section provides a comprehensive overview of the client base, segmenting them by their relationship with the bank, age, and income levels.
 
-3. **Risk and Compliance**:
-   - **Risk Distribution**: Low Risk (40.73%), Very Low Risk (27.87%), Moderate (15.33%), High (10.73%), Very High (5.33%).
-   - **High-Risk Clients**: Concentrated in Europeans (206) and Asians (121), with trends showing peaks in 2010-2020.
-   - **Loan Portfolio Growth**: Steady increase with strong collateral in properties owned.
-   - **Insight**: Very High Risk clients are minimal (5.33%), but monitoring is crucial for Moderate Risk groups (459 clients). Risk weighting correlates with higher loans in Institutional Banking.
+<img width="1794" height="1035" alt="Screenshot 2025-08-05 211446" src="https://github.com/user-attachments/assets/834138db-706e-4799-8441-5eb0d5d41cc2" />
 
-   ![Risk Distribution Chart](images/risk_distribution.png)  
-   *(Extracted from Banking_analysis.pdf - Client Distribution by Risk Weighting.)*
+-   **Client Segmentation:**
+    -   **Private Banking** clients represent the largest segment, with **1,352** individuals, indicating a strong focus on high-net-worth relationships.
+    -   The **Adult (30-59)** age group is the most significant demographic, comprising **1,309 clients**, followed by Seniors (60+) with 1,127 clients.
+-   **Income Distribution:**
+    -   The majority of clients (**50.57%** or 1,517 clients) fall into the **Medium** income band.
+-   **Loyalty Insights:**
+    -   **Jade** is the most common loyalty tier, particularly among Adult and Senior clients, suggesting a stable, long-term customer base.
 
-   Additional Insights:
-   - Loyalty Classification: Jade (majority), followed by Gold, Platinum, Silver – linked to higher deposits.
-   - Income Bands: Medium income clients (50.57%) hold the most accounts, but High income drives 40% of loans.
-   - Gender Trends in Credit: Males hold more credit cards in Senior groups, while Females dominate in Young categories.
-   - Over Time: Client net worth has grown 3x since 2000, with risk profiles stabilizing post-2015.
+### II. Financial Product Performance & Portfolio
 
-These insights empower banks to target high-value segments, mitigate risks, and enhance product offerings.
+This view analyzes the bank's core financial products, highlighting the balance between deposits and loans and exploring credit usage patterns.
 
----
+<img width="1793" height="1034" alt="Screenshot 2025-08-05 211506" src="https://github.com/user-attachments/assets/05c8023a-a983-4030-992e-e02c0b5ca98b" />
 
-## 📈 DAX Measures Used in Power BI
 
-Custom DAX measures were pivotal for calculations. Here are some key ones:
+-   **Deposits vs. Loans:**
+    -   The bank maintains a healthy financial position, with **Total Deposits (€2.0bn)** significantly exceeding **Total Loans (€1.8bn)**.
+    -   **Private Banking** is the primary driver for both deposits (€925M) and loans (€814M).
+-   **Credit Card Holdings:**
+    -   The **Adult (30-59)** age group holds the highest number of credit cards, with a nearly even split between male and female clients. This group represents a key target for credit-related products.
+-   **Business Lending Leaders:**
+    -   Clients with occupations like **Structural Analysis Engineer** (€33M) and **Automation Specialist IV** (€28M) are associated with the highest amounts of business lending, pointing to specific professional segments driving commercial loan activity.
 
-1. **Age Group Calculation**:
-   ```
-   Age group = IF(Banking[age] < 30, "Young (18-29)", IF(Banking[age] < 60, "Adult (30-59)", "Senior (60 +)"))
-   ```
+### III. Risk & Compliance Overview
 
-2. **Client Net Worth**:
-   ```
-   Client Net Worth = SUM('Banking'[bank_deposits]) + SUM('Banking'[saving_accounts]) + SUM('Banking'[superannuation_savings]) - SUM('Banking'[bank_loans]) - SUM('Banking'[creditcard_balance])
-   ```
+This critical section assesses the bank's risk exposure by categorizing clients based on their risk weighting and analyzing the distribution of risk across different segments.
 
-3. **Custom Label for Bar Charts**:
-   ```
-   Cust_Label for Bar chart =
-   VAR BankingRel = SELECTEDVALUE('Banking'[banking_relationship])
-   VAR NameCount = CALCULATE(COUNT('Banking'[name]), ALLEXCEPT('Banking', 'Banking'[banking_relationship]))
-   RETURN
-   BankingRel & " | " & FORMAT(NameCount, "0")
-   ```
+<img width="1790" height="1033" alt="Screenshot 2025-08-05 211533" src="https://github.com/user-attachments/assets/e021cd93-5b2e-45dc-b9b0-83fe874aa5c3" />
 
-4. **Risk-Related Measures**:
-   ```
-   High Risk Clients = CALCULATE(COUNT(Banking[client_id]), Banking[risk_weighting] = 4)
-   Moderate Risk Clients = CALCULATE(COUNT(Banking[client_id]), Banking[risk_weighting] = 3)
-   Very High Risk Clients = CALCULATE(COUNT(Banking[client_id]), Banking[risk_weighting] = 5)
-   ```
 
-5. **Total Credit Exposure**:
-   ```
-   Total Credit Exposure = SUM('Banking'[creditcard_balance]) + SUM('Banking'[bank_loans]) + SUM('Banking'[business_lending])
-   ```
-
-6. **Risk Category**:
-   ```
-   Risk Category =
-   SWITCH (
-       'Banking'[risk_weighting],
-       1, "Very Low Risk",
-       2, "Low Risk",
-       3, "Moderate Risk",
-       4, "High Risk",
-       5, "Very High Risk", "Unknown"
-   )
-   ```
-
-And more – full list in the Power BI file.
-
----
-
-## 🏃‍♂️ How to Run the Project
-
-1. **Clone the Repo**: `git clone https://github.com/AnalystVivek/Banking-Analytics-Dashboard.git`
-2. **Setup MySQL**: Import the dataset into MySQL using the provided SQL scripts.
-3. **Run Jupyter Notebook**: Open `Banking_Analysis.ipynb` to explore data.
-4. **View Dashboard**: Open the `.pbix` file in Power BI Desktop or visit the [live report](https://project.novypro.com/gdufdN).
-
----
-
-## 📞 Contact and Links
-
-- **LinkedIn**: [Vivek Pattnaik](https://www.linkedin.com/in/vivekpattnaik)  
-- **GitHub**: [AnalystVivek](https://github.com/AnalystVivek)  
-- **Email**: vivek.pattnaik@gmail.com  
-- **Live Power BI Report**: [Banking Analytics Dashboard](https://project.novypro.com/gdufdN)
-
-Feel free to star ⭐ this repo, fork it, or reach out for collaborations!
-
----
-
-*This project is open-source under MIT License. Contributions welcome!*
-```
-
-[1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/82624519/53d3d74e-873f-44c8-9391-fc071a7c98d8/Banking.csv
-[2] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/82624519/5ff6f4ec-f7be-4d81-b445-7464fc42f90f/Banking_Analysis.ipynb
-[3] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/82624519/60deb7c5-214b-487b-8e94-2285a715dc93/Banking_analysis.pdf
+-   **Risk Distribution:**
+    -   A majority of clients (**40.73%**) are classified as **Low Risk**, with another **27.87%** as **Very Low Risk**, indicating a generally conservative and healthy client portfolio.
+    -   However, **15.33%** of clients fall into the **High Risk** category and **5.33%** into **Very High Risk**, which requires strategic monitoring.
+-   **High-Risk Client Profile:**
+    -   Clients of **European** nationality make up the largest group of high-risk individuals, followed by those of Asian and American descent.
+    -   The number of **High-Risk** clients has seen a noticeable increase over time, peaking in recent years. This trend warrants further investigation to understand the underlying causes and mitigate potential defaults.
+-   **Loan Portfolio by Risk:**
+    -   The analysis of total loans by risk profile shows that while **Low Risk** clients have substantial loan amounts, the **High Risk** and **Very High Risk** categories also hold significant loan balances, representing a concentrated area of financial risk for the bank.
